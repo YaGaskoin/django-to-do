@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список задач</title>
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css'%}">
+
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <p>TO-DO LIST</p>
+    </header>
+</div>
+
+<div class="container content">
+    <div class="row">
+        <div class="col-7">
+            {% for task in tasks %}
+            <div class="task" id="task-{{task.id}}">
+                <p style="text-align: right;"> {{ task.created|date:"d.m.Y"}} в {{task.created|date:"H:i"}}</p>
+                <p class="title"><strong>{{ task.name }}</strong></p>
+                Приоритет: <span style="
+                {% if task.priority == 'Высокий' %} color:red;
+                {% elif task.priority == 'Средний' %} color:rgb(234,134,84);
+                {% elif task.priority == 'Низкий' %} color:blue; {% endif %} ">
+                {{ task.priority }}</span>
+                <br>
+                Статус: {{ task.status }}
+                <br>
+                Выполнить до: {{task.deadline|date:"d.m.Y H:i"}}
+                {% if task.description %}
+                <p class="text"><u>Описание:</u> <br>{{ task.description }}</p>
+                {% else %}
+                <p class="text">Описания нет</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="col-5">
+            <div class="info">
+                <h3>В процессе выполнения</h3>
+                {% for task in draft %}
+                <a class="anchor" href="#task-{{task.id}}">{{ task.name }}</a><br>
+                {% endfor %}
+            </div>
+            <div class="info">
+                <h3>Ожидают выполнения</h3>
+                {% for task in wait %}
+                <a class="anchor" href="#task-{{task.id}}">{{ task.name }}</a><br>
+                {% endfor %}
+            </div>
+            <div class="info">
+                <h3>Выполненные</h3>
+                {% for task in complete %}
+                <a class="anchor" href="#task-{{task.id}}">{{ task.name }}</a><br>
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

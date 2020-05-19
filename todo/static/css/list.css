@@ -1,0 +1,42 @@
+body{
+    margin: 0 -15px;
+    background-color: rgb(177,211,152);
+}
+.task {
+    background-color: #D4EAC5;
+    padding: 10px 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.content{
+    background-color: rgb(177,211,152);
+}
+
+.title{
+    font-size: 18px;
+
+}
+
+header{
+    background: #91BD72;
+    padding: 20px 0;
+}
+header p {
+    font-size: 32px;
+    margin-left: 20px;
+}
+.info{
+     background-color: #CA8F75;
+    padding: 10px 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+.info a{
+    text-decoration: none;
+    color: black
+}
+
+.info a:hover{
+    color:white;
+}
