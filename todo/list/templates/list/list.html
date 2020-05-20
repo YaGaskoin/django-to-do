@@ -21,7 +21,10 @@
             {% for task in tasks %}
             <div class="task" id="task-{{task.id}}">
                 <p style="text-align: right;"> {{ task.created|date:"d.m.Y"}} в {{task.created|date:"H:i"}}</p>
-                <p class="title"><strong>{{ task.name }}</strong></p>
+                <p class="title" style="
+                {% if task.priority == 'Высокий' %} color:red;
+                {% elif task.priority == 'Средний' %} color:rgb(234,134,84);
+                {% elif task.priority == 'Низкий' %} color:blue; {% endif %} "><strong>{{ task.name }}</strong></p>
                 Приоритет: <span style="
                 {% if task.priority == 'Высокий' %} color:red;
                 {% elif task.priority == 'Средний' %} color:rgb(234,134,84);
