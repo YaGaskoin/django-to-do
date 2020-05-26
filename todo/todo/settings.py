@@ -110,3 +110,19 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+DEBUG = True
+ADMINS = (
+('gaskoin', 'dchierntsov@mail.ru'),
+)
+ALLOWED_HOSTS = ['todo.com', 'localhost']
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'list',
+        'USER': 'list',
+        'PASSWORD': 'list',
+        'HOST': 'localhost',
+        'PORT': '5432',
+}
+}
